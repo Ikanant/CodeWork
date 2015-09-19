@@ -3,6 +3,9 @@ import java.util.*;
 class str_13{
 	public static void main(String[] args){
 		Scanner input = new Scanner(System.in);
+
+		System.out.println("Enter two Strings:")
+
 		String str = input.nextLine();
 		String str2 = input.nextLine();
 
@@ -35,8 +38,6 @@ class str_13{
 				}
 			}
 		}
-
 		return true;
-
 	}
 }
