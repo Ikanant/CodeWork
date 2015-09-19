@@ -7,9 +7,10 @@ class str_11{
 		Scanner input = new Scanner(System.in);
 		String str = input.nextLine();
 
-		System.out.println("Is unique: " + isUnique(str));
+		System.out.println("Is unique: " + isUniqueNoDS(str));
 	}
 
+	//using hashmap
 	public static boolean isUnique(String str){
 		Map<Character, Boolean> characterMap = new HashMap<Character, Boolean>();
 
