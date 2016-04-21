@@ -1,7 +1,7 @@
 public class util {
 	public static void main(String[] args) {
-		int A[] = { 1, 2, 3, 4, 5 };
-		int B[] = solution1(A, 3);
+		int A[] = {1, 2, 3, 4};
+		int B[] = solution1(A, 2);
 
 		for (int e : B) {
 			System.out.println(e);
@@ -10,21 +10,11 @@ public class util {
 
 	// BEST answer
 	public static int[] solution1(int[] A, int K) {
-
-		// 1 2 3 4 5
-		//
-		// 1 -
-		// 1 2 3 4 5
-		// 1 3
-		// 1 2 1 4 5
-		// 3 5
-		// 1 2 1 4 3
-		// 5 2
-		// 1 5 1 4 3
-		// 2 4
-		// 1 5 1 2 3
-		// 4 1
-		// 4 5 1 2 3
+		System.out.println("enter solution");
+		if(K%A.length==0 || A.length%K==0){
+			System.out.println("inception");
+			return solution1(solution1(A, K-1),1);
+		}
 
 		int tempOne = A[0];
 		int tempTwo;
