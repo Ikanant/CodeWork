@@ -1,20 +1,28 @@
 public class util {
 	public static void main(String[] args) {
-		int A[] = {1, 2, 3, 4};
-		int B[] = solution1(A, 2);
+		int A[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-		for (int e : B) {
-			System.out.println(e);
+		A = reverseArray(A, 0, A.length-1);
+
+		for(int i:A){
+			System.out.println(i);
 		}
+	}
+
+	public static int[] reverseArray(int[] A, int left, int right){
+		int temp;
+
+		for(int i=left, j=right; i<=(left+right)/2; i++, j--){
+			temp = A[i];
+			A[i] = A[j];
+			A[j] = temp;
+		}
+
+		return A;
 	}
 
 	// BEST answer
 	public static int[] solution1(int[] A, int K) {
-		System.out.println("enter solution");
-		if(K%A.length==0 || A.length%K==0){
-			System.out.println("inception");
-			return solution1(solution1(A, K-1),1);
-		}
 
 		int tempOne = A[0];
 		int tempTwo;
