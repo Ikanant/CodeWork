@@ -2,10 +2,10 @@ public class util {
 	public static void main(String[] args) {
 		int A[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-		A = reverseArray(A, 0, A.length-1);
+		A = solution1(A, 3);
 
 		for(int i:A){
-			System.out.println(i);
+			System.out.print(i);
 		}
 	}
 
@@ -24,24 +24,29 @@ public class util {
 	// BEST answer
 	public static int[] solution1(int[] A, int K) {
 
-		int tempOne = A[0];
-		int tempTwo;
-		int swapIndex = K;
-		for (int i = 0; i < A.length; i++) {
-			while (swapIndex >= A.length) {
-				swapIndex -= A.length;
-			}
-
-			tempTwo = A[swapIndex];
-
-			A[swapIndex] = tempOne;
-
-			tempOne = tempTwo;
-
-			swapIndex += K;
-		}
-
+		A = reverseArray(A,0,A.length-1);
+		A = reverseArray(A,0,K-1);
+		A = reverseArray(A,K,A.length-1);
 		return A;
+
+		// int tempOne = A[0];
+		// int tempTwo;
+		// int swapIndex = K;
+		// for (int i = 0; i < A.length; i++) {
+		// 	while (swapIndex >= A.length) {
+		// 		swapIndex -= A.length;
+		// 	}
+		//
+		// 	tempTwo = A[swapIndex];
+		//
+		// 	A[swapIndex] = tempOne;
+		//
+		// 	tempOne = tempTwo;
+		//
+		// 	swapIndex += K;
+		// }
+		//
+		// return A;
 	}
 
 	// Good track answer but not perfect
