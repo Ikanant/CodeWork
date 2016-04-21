@@ -3,26 +3,27 @@ import java.util.ArrayList;
 
 class util{
   public static void main(String[] args){
-    int A[] = {2,4,7,2,1,3,1,3,4,7,6,1,2,1,2};
+    int A[] = {9,3,9,3,9,7,9};
 
     System.out.println(solution(A));
   }
 
   public static int solution(int []A){
 
-    List<Integer> list = new ArrayList();
-
-    for(int elem: A){
-      if(list.contains(elem)){
-        list.remove(new Integer(elem));
+    int found = 0;
+    for(int i=0; i<A.length-3; i+=4){
+      if(A[i] != A[i+2]){
+        found = A[i];
+        break;
       }
-      else{
-        list.add(elem);
+
+      if(A[i+1] != A[i+3]){
+        found = A[i+1];
+        break;
       }
     }
+    found = A[A.length-2];
 
-
-
-    return list.get(0);
+    return found;
   }
 }
