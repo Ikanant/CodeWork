@@ -1,6 +1,6 @@
 class util{
   public static void main(String[] args){
-    int A [] = {1,1,1,1,0,0,0,-1,1};
+    int A [] = {1,1,1,1,0,0,0,-1,1,1};
 
     System.out.println(solution(A));
   }
@@ -12,8 +12,13 @@ class util{
     int leftSum = A[0];
     int rightSum = A[A.length-1];
 
+    int leftTempDiff;
+    int rightTempDiff;
     while(leftIndex+1!=rightIndex){
-      if( (leftSum<rightSum && leftSum>0) || (leftSum>rightSum && leftSum<0) ){
+      leftTempDiff = toPos( rightSum - leftSum + A[leftIndex+1] );
+      rightTempDiff = toPos( rightSum + A[rightIndex-1] - leftSum );
+
+      if(leftTempDiff < rightTempDiff){
         leftIndex++;
         leftSum += A[leftIndex];
       }
