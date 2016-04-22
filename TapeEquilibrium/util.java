@@ -1,6 +1,6 @@
 class util{
   public static void main(String[] args){
-    int A [] = {-4,1,-5,12,5};
+    int A [] = {1,1,1,1,0,0,0,-1,1};
 
     System.out.println(solution(A));
   }
@@ -11,8 +11,9 @@ class util{
 
     int leftSum = A[0];
     int rightSum = A[A.length-1];
+
     while(leftIndex+1!=rightIndex){
-      if(leftSum <= rightSum){
+      if( (leftSum<rightSum && leftSum>0) || (leftSum>rightSum && leftSum<0) ){
         leftIndex++;
         leftSum += A[leftIndex];
       }
@@ -22,11 +23,13 @@ class util{
       }
     }
 
-    int diff = rightSum-leftSum;
+    return toPos(rightSum-leftSum);
+  }
 
-    if (diff<0)
-      diff *= -1;
+  private static int toPos(int num){
+    if(num<0)
+      num *= -1;
 
-    return diff;
+    return num;
   }
 }
