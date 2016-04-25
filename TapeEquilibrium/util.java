@@ -1,34 +1,37 @@
 class util{
   public static void main(String[] args){
-    int A [] = {1,1,1,1,0,0,0,-1,1,1};
+    int A [] = {3,1,2,4,3};
 
     System.out.println(solution(A));
   }
 
   public static int solution(int[] A){
-    int leftIndex = 0;
-    int rightIndex = A.length-1;
-
-    int leftSum = A[0];
-    int rightSum = A[A.length-1];
-
-    int leftTempDiff;
-    int rightTempDiff;
-    while(leftIndex+1!=rightIndex){
-      leftTempDiff = toPos( rightSum - leftSum + A[leftIndex+1] );
-      rightTempDiff = toPos( rightSum + A[rightIndex-1] - leftSum );
-
-      if(leftTempDiff < rightTempDiff){
-        leftIndex++;
-        leftSum += A[leftIndex];
-      }
-      else{
-        rightIndex--;
-        rightSum += A[rightIndex];
-      }
+    int leftSum=A[0];
+    int rightSum=0;
+    for(int i=1; i<A.length; i++){
+      rightSum += A[i];
     }
 
-    return toPos(rightSum-leftSum);
+    System.out.println(leftSum + " " + rightSum);
+
+    int diff;
+    int minDiff=999999;
+
+    for(int j=1;j<A.length; j++){
+      diff = toPos(rightSum-leftSum);
+
+      if(diff==0) {
+        minDiff = 0;
+        break;
+      }
+      else if(diff < minDiff){
+        minDiff = diff;
+      }
+      leftSum += A[j];
+      rightSum -= A[j];
+    }
+
+    return minDiff;
   }
 
   private static int toPos(int num){
