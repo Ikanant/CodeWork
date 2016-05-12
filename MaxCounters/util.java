@@ -16,9 +16,8 @@ class util {
     for (int val: A){
       val--;
 
-
       if(val < N){
-        result[val] = result[val]+1;
+        result[val]++;
 
         if(result[val] > max) {
           max = result[val];
@@ -26,7 +25,7 @@ class util {
       } else {
         lastMax += max;
         max=0;
-        result = new int[N];;
+        result = new int[N];
       }
     }
 
