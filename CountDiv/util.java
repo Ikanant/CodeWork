@@ -1,17 +1,16 @@
 class util {
   public static void main(String[] args) {
-    System.out.println(solution(6,11,2));
+    System.out.println(solution(10,11,2));
   }
 
   public static int solution(int A, int B, int K){
-    int count = 0;
+    int count = (B-A)/K;
 
-    for (int i=A; i<=B; i++){
-      if (i%K == 0){
-        count++;
-      }
+    if (count>1){
+      return 1 + count;
+    } else {
+      return -1;
     }
 
-    return count;
   }
 }
